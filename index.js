@@ -1,18 +1,21 @@
 import http from 'http';
-import express from 'http';
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 import routes from './routes';
-import { serverHost, serverPort } from './config';
+import { serverPort } from './config';
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 routes(app);
 
 // Http Server Config
-const server = http.createServer((req, res) => {
-	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.end('Server running');
-});
+const server = http.createServer(app);
 
-server.listen(serverPort, serverHost, () => {
-	console.log(`Server running on ${serverHost}:${serverPort}`);
+server.listen(serverPort, () => {
+	console.log(`Server running on port ${serverPort}`);
 });

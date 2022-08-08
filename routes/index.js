@@ -1,5 +1,5 @@
 const Routes = app => {
-	app.get('/', (req, res) => res.send('hello world'));
+	app.get('/', (req, res) => res.send('Http Server running.'));
 }
 
 export default Routes;
