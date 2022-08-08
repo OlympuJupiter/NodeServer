@@ -6,5 +6,5 @@ export const login = (req, res, next) => {
 }
 
 export const register = (req, res, next) => {
-
+    
 }
