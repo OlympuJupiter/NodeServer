@@ -20,6 +20,7 @@ app.use(cors());
 
 routes(app);
 
+// Create passport
 // passport.use(new LocalStrategy(
 // 	(username, passport, done) => {
 // 		User.findOne({ username: username }, (err, user) => {
